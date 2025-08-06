@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-card-primary : #2C2C2C;
+  --color-priority-high: #F7374F;
+  --color-priority-med: #4B70F5;
+  --color-priority-low: #F14A00;
+
+}
+
+@layer components {
+  .card-comp {
+    @apply bg-card-primary text-white p-3 space-y-1 min-w-60 w-full rounded-md hover:cursor-grab
+  }
+  .input-comp {
+    @apply border-2 outline-none border-slate-500/60 rounded-md h-10 w-60 focus:border-blue-500 px-2.5 transition-all duration-300 placeholder:opacity-0;
+  }
+  .input-comp:not(:placeholder-shown) ~ .input-span {
+    @apply  transform -translate-y-5.5 scale-80 bg-card-primary px-0.5 duration-200
+  }
+  .input-comp:focus ~ .input-span {
+    @apply text-blue-500 transform -translate-y-5.5 scale-80 bg-card-primary px-0.5 duration-200
+  }
+  .input-span {
+    @apply absolute top-2 left-2.5 duration-300 
+  }
+}
+
+
+/* input[type="text"]:focus ~ .input-span,
+input[type="text"]:not(:placeholder-shown) ~ .input-span{
+  @apply text-blue-500 transform -translate-y-5.5 -translate-x-0 scale-75;
+} */
+
+@layer base { img { display: initial;} }
+
+@custom-variant dark (&:is(.dark *)); 
+
